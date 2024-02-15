@@ -4,7 +4,7 @@ import React from 'react'
 
 const CursorChat = ({cursor,cursorState,setCursorState,updateMyPresence}:CursorChatProps) => {
   return (
-    <div className='absulote top-0 left-0' style={{transform:`translateX(${cursor.x}px) translateY(${cursor.y}px)`}}>
+    <div className='absolute top-0 left-0' style={{transform:`translateX(${cursor.x}px) translateY(${cursor.y}px)`}}>
         {/* {cursorState.mode === CursorMode.Chat && ( */}
             <>
                 <CursorSVG color='#000'/>
