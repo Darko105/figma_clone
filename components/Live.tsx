@@ -10,6 +10,8 @@ const Live = () => {
 
     const [cursorState,setCursorState] = useState({
         mode: CursorMode.Hidden,
+        
+        
     });
 
     
@@ -29,20 +31,24 @@ const Live = () => {
 
     },[])
 
-    const handlePointerDown =useCallback((event:React.PointerEvent) => {
-    
+    const handlePointerDown = useCallback((event: React.PointerEvent) => {
         const x = event.clientX - event.currentTarget.getBoundingClientRect().x;
-        const  y = event.clientY - event.currentTarget.getBoundingClientRect().y;
-        updateMyPresence( { cursor: {x,y}});
-
-    },[])
+        const y = event.clientY - event.currentTarget.getBoundingClientRect().y;
+    
+        updateMyPresence({
+            cursor: { x, y },
+            message: null, // assuming message should be null on pointer down
+            mode: cursorState.mode, // include the mode property in the update
+        });
+    
+    }, [updateMyPresence, cursorState.mode]);
 
     useEffect(() =>{
         const onKeyUp = (e:KeyboardEvent) =>{
             if(e.key === '/'){
                 setCursorState({
                     mode: CursorMode.Chat,
-                    previousMessage : null,
+                    previousMessage : "" as any,
                     message: "",
                 })
             }else if(e.key === 'Escape'){
