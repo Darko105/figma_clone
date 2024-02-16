@@ -48,7 +48,6 @@ const Live = () => {
             if(e.key === '/'){
                 setCursorState({
                     mode: CursorMode.Chat,
-                    previousMessage : "" as any,
                     message: "",
                 })
             }else if(e.key === 'Escape'){
