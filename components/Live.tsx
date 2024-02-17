@@ -11,8 +11,6 @@ const Live = () => {
 
     const [cursorState,setCursorState] = useState({
         mode: CursorMode.Hidden,
-        previousMessage: "" as any,
-        message: "" as any,
     });
 
     
@@ -45,8 +43,6 @@ const Live = () => {
             if(e.key === '/'){
                 setCursorState({
                     mode: CursorMode.Chat,
-                    previousMessage : null,
-                    message: "",
                 })
             }else if(e.key === 'Escape'){
                 updateMyPresence({message:'',})
